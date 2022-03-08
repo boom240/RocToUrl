@@ -1,4 +1,12 @@
+using rocToURL.Abstractions;
+using rocToURL.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorPages();
+
+// register types
+builder.Services.AddScoped<IUrlService, UrlServiceImplementation>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
