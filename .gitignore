@@ -422,6 +422,8 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+ rocToURL/obj/
+
 # JetBrains Rider
 *.sln.iml
 © 2022 GitHub, Inc.
