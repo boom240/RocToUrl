@@ -1,26 +1,55 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using rocToURL.Models;
+using rocToURL.Abstractions;
 
 namespace rocToURL.Controllers
 {
     public class UrlController : Controller
     {
+        #region Fields
+
+        private IUrlService urlService;
+
+        #endregion Fields
+
+        #region Properties
+
+        private URL urlToShorten;
+
+        public URL UrlToShorten
+        {
+            get { return urlToShorten; }
+            set { urlToShorten = value; }    
+        }
+
+        #endregion Properties
+
+        public UrlController(IUrlService urlService)
+        {
+            this.urlService = urlService;
+
+            UrlToShorten = new URL();
+        }
+
+        #region Actions
+
         [HttpGet]
         public IActionResult Shorten()
         {
-            return View();
+            return View(UrlToShorten);
         }
 
-        public ActionResult Shorten(URL url)
+        public async Task<ActionResult> Shorten(URL url)
         {
             // checks if all validation requirements are met
             if (ModelState.IsValid)
             {
-                url.ShortUrl = String.Empty;
+                url.ShortUrl = await urlService.MinifyUrl(url.LongUrl);
             }
 
             return View(url);
         }
+
+        #endregion Actions
     }
 }

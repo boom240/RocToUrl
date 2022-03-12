@@ -6,6 +6,7 @@ namespace rocToURL.Controllers
 {
     public class HomeController : Controller
     {
+        //pull logger out into a baseclass we can inherit from.
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
