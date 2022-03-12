@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rocToURL", "rocToURL\rocToURL.csproj", "{91CA6898-AA19-467D-9A2B-D41F8DBBF734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rocToURL.Abstractions", "rocToURL.Abstractions\rocToURL.Abstractions.csproj", "{B4E5F839-03EA-4AA7-8FFD-8A4CEBEA23CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rocToURL.Abstractions", "rocToURL.Abstractions\rocToURL.Abstractions.csproj", "{B4E5F839-03EA-4AA7-8FFD-8A4CEBEA23CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rocToURL.Entities", "rocToURL.Entities\rocToURL.Entities.csproj", "{DDC9F1EC-9EED-4C4A-B59D-D0E05C45A6BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B4E5F839-03EA-4AA7-8FFD-8A4CEBEA23CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E5F839-03EA-4AA7-8FFD-8A4CEBEA23CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E5F839-03EA-4AA7-8FFD-8A4CEBEA23CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC9F1EC-9EED-4C4A-B59D-D0E05C45A6BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC9F1EC-9EED-4C4A-B59D-D0E05C45A6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC9F1EC-9EED-4C4A-B59D-D0E05C45A6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC9F1EC-9EED-4C4A-B59D-D0E05C45A6BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

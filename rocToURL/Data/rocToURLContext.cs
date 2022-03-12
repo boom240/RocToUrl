@@ -1,10 +1,5 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using rocToURL.Models;
 
 namespace rocToURL.Data
 {
@@ -15,6 +10,6 @@ namespace rocToURL.Data
         {
         }
 
-        public DbSet<rocToURL.Models.URL> URL { get; set; }
+        public DbSet<rocToURL.Entities.Models.URL> URL { get; set; }
     }
 }

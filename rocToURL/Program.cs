@@ -1,8 +1,7 @@
 using rocToURL.Abstractions;
-using rocToURL.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using rocToURL.Data;
+using rocToURL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

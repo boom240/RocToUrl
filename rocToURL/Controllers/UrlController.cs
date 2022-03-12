@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using rocToURL.Models;
 using rocToURL.Abstractions;
+using rocToURL.Entities.Models;
+
+using System;
+using System.Web;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace rocToURL.Controllers
 {
@@ -14,12 +19,12 @@ namespace rocToURL.Controllers
 
         #region Properties
 
-        private URL urlToShorten;
+        private URL urlShort;
 
-        public URL UrlToShorten
+        public URL UrlShort
         {
-            get { return urlToShorten; }
-            set { urlToShorten = value; }    
+            get { return urlShort; }
+            set { urlShort = value; }    
         }
 
         #endregion Properties
@@ -27,8 +32,6 @@ namespace rocToURL.Controllers
         public UrlController(IUrlService urlService)
         {
             this.urlService = urlService;
-
-            UrlToShorten = new URL();
         }
 
         #region Actions
@@ -36,15 +39,28 @@ namespace rocToURL.Controllers
         [HttpGet]
         public IActionResult Shorten()
         {
-            return View(UrlToShorten);
+            UrlShort = new URL();
+
+            return View(UrlShort);
         }
 
         public async Task<ActionResult> Shorten(URL url)
         {
+            var localIp = this.HttpContext.Connection.LocalIpAddress.ToString();
+
+            Url.Action(new UrlActionContext
+            {
+                Protocol = Request.Scheme,
+                Host = Request.Host.Value,
+                Action = "Action"
+            });
+
             // checks if all validation requirements are met
             if (ModelState.IsValid)
             {
-                url.ShortUrl = await urlService.MinifyUrl(url.LongUrl);
+                UrlShort = await urlService.MinifyUrl(url.LongUrl, localIp);
+
+                url.ShortUrl = string.Format("{0}://{1}{2}{3}", Request.Scheme, UriPartial.Authority, Url.Content("~"), UrlShort.Segment);
             }
 
             return View(url);

@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\rocToURL.Entities\rocToURL.Entities.csproj" />
-  </ItemGroup>
-
 </Project>
