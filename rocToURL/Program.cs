@@ -1,9 +1,16 @@
 using rocToURL.Abstractions;
 using rocToURL.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using rocToURL.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+
+//create and register db context
+builder.Services.AddDbContext<rocToURLContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("rocToURLContext")));
 
 // register types
 builder.Services.AddScoped<IUrlService, UrlServiceImplementation>();

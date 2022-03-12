@@ -18,7 +18,6 @@
   </head>
 
   <body class="text-center">
-    @Html.ValidationSummary()
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
 @using (Html.BeginForm())
 {
@@ -48,5 +47,7 @@
     <script src="./Cover Template for Bootstrap_files/popper.min.js.download"></script>
     <script src="./Cover Template for Bootstrap_files/bootstrap.min.js.download"></script>
   
-
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 </body></html>
